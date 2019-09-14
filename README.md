@@ -20,7 +20,7 @@ This framework contains a simple UI for image comaprsion between different metho
 (Each dataset must contains **input** folder as reference.
 Some examples can be found in `static/_SBU/`.)
 
-3. run `python run.py` in the root dir of this project and open your favourite browser to `0.0.0.0:5000`.
+3. run `python app.py` in the root dir of this project and open your favourite browser to `0.0.0.0:5000`.
 
 ### UI function
 
