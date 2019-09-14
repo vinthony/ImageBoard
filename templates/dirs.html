@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ImageBoard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='./assets/css/bootstrap.min.css')}}">
+  <!-- Latest compiled and minified JavaScript -->
+<script src="{{url_for('static',filename='./assets/js/jquery-3.4.1.min.js')}}" ></script>
+    <script src="{{url_for('static',filename='./assets/js/bootstrap.min.js')}}" ></script>
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Marko+One|Stylish" rel="stylesheet"> -->
+    
+    <style type="text/css">
+        body{
+            font-size: 1.1em;
+            background: #efefef;
+        }
+        .container{
+            background: #fff;
+        }
+        a{
+            display: inline-block;
+            margin: 0 5px;
+            /*font-size: 1.2em;*/
+        }
+        a:hover{
+            text-decoration: none;
+            color: #77428D;
+
+        }
+        .list-group-item:hover{
+             cursor:pointer;
+        }
+        h1,h2,h3,h4,h5,h6{
+            /*font-family: 'Marko One', serif;*/
+        }
+    </style>
+</head>
+<body> 
+   <nav class="navbar navbar-expand-lg flex-column flex-md-row bd-navbar navbar-inverse fixed-top bg-inverse sticky-top navbar-dark bg-primary">
+      <a class="navbar-brand" href="/">ImageBoard</a>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class=" nav navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{request.args.get('dataset') | default('Dataset',true)}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                {% for dataset in datasets %}
+                <a class="dropdown-item" href="./method?dataset={{dataset}}">{{dataset}}</a>
+                {% endfor %}
+            </div>
+          </li>
+          <li class="nav-item">
+                <div class="btn-group" role="group" aria-label="Image Size">
+                  <button type="button" id="imageSmaller" class="image-resizer btn btn-outline-light">-</button>
+                  <button type="button" id="imageResetter" class=" image-resizer btn btn-outline-light">reset</button>
+                  <button type="button" id="imageBigger" class=" image-resizer btn btn-outline-light">+</button>
+                </div>
+            </li>
+        </ul>
+
+              
+      </div>
+    </nav>
+    <div class="container-fluid">{% block content %}
+        <p align="center"></p>Choose a database to start!
+        {% endblock %}
+    </div>
+
+</body>
+
+</script>
+</html>
+
