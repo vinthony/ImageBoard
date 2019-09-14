@@ -17,7 +17,8 @@ This framework contains a simple UI for image comaprsion between different metho
 `static/dataset1/method2/1.png`,
 ...
 `static/dataset1/methodN/1.png`.
-Some examples can be found in `static/_SBU/`.
+(Each dataset must contains **input** folder as reference.
+Some examples can be found in `static/_SBU/`.)
 
 3. run `python run.py` in the root dir of this project and open your favourite browser to `0.0.0.0:5000`.
 
