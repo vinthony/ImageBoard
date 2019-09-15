@@ -2,7 +2,8 @@
 
 This framework contains a simple UI for image comaprsion between different methods.
 
-![image](https://user-images.githubusercontent.com/4397546/64908430-d85fbb80-d732-11e9-9bf2-68279382a405.png)
+![image](https://user-images.githubusercontent.com/4397546/64920210-3d74e900-d7e7-11e9-9033-010b497a8d7d.png)
+
 
 ### Requirements
 
