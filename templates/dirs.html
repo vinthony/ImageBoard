@@ -13,21 +13,13 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Marko+One|Stylish" rel="stylesheet"> -->
     
     <style type="text/css">
-        body{
-            font-size: 1.1em;
-            background: #efefef;
-        }
+        
         .container{
             background: #fff;
         }
-        a{
-            display: inline-block;
-            margin: 0 5px;
-            /*font-size: 1.2em;*/
-        }
         a:hover{
             text-decoration: none;
-            color: #77428D;
+            /*color: #77428D;*/
 
         }
         .list-group-item:hover{
@@ -41,7 +33,7 @@
 <body> 
    <nav class="navbar navbar-expand-lg flex-column flex-md-row bd-navbar navbar-inverse fixed-top bg-inverse sticky-top navbar-dark bg-primary">
       <a class="navbar-brand" href="/">ImageBoard</a>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class=" nav navbar-nav mr-auto">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -53,6 +45,11 @@
                 {% endfor %}
             </div>
           </li>
+        </ul>
+        <ul class="nav justify-content-center">
+          {{html|safe}}
+        </ul> 
+        <ul class="nav justify-content-end  ml-auto">
           <li class="nav-item">
                 <div class="btn-group" role="group" aria-label="Image Size">
                   <button type="button" id="imageSmaller" class="image-resizer btn btn-outline-light">-</button>
@@ -61,8 +58,7 @@
                 </div>
             </li>
         </ul>
-
-              
+                     
       </div>
     </nav>
     <div class="container-fluid">{% block content %}

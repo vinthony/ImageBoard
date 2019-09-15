@@ -4,28 +4,28 @@
 
 
  <div class="row">
-     <div class="col-2" style="padding:0">
+     <div class="col-1" style="padding:0">
         {% if methods %}
-            <ul class="list-group">
-                <a class="list-group-item list-group-item-action list-group-item-success" href="./method?dataset={{ request.args.get('dataset') }}">View All</a>
+            <div class="list-group">
+                <a class="list-group-item list-group-item-action" href="./method?dataset={{ request.args.get('dataset') }}">View All</a>
             {% for method in methods %}
                 {% if method in filter_methods %}
-                <a class="btn-method list-group-item list-group-item-action list-group-item-warning" id="{{method}}">{{method}}</a>
+                <a href="#" class="btn-method list-group-item list-group-item-action active" id="{{method}}">{{method}}</a>
                 {% else %}
-                <a class="btn-method list-group-item list-group-item-action" id="{{method}}">{{method}}</a>
+                <a href="#" class="btn-method list-group-item list-group-item-action" id="{{method}}">{{method}}</a>
                 {% endif %}
               </li>
             {% endfor %}
-              <a class="list-group-item list-group-item-action list-group-item-success remember">Remember</a>
-            </ul>
+              <a class="list-group-item list-group-item-action remember">Remember</a>
+            </div>
         {% endif %}
      </div>
-     <div class="col-10" style="padding:0">
+     <div class="col-11" style="padding:0">
         {% for idx in images %}
         <div  style="display: inline-block;margin: 10px">
             {% for method in filter_methods %}
                  <div class='{{method}}-div' style="display: inline-block;">
-                    <img class="shown-img" width='300px' height='200px' src="{{url_for('static',filename=dataset+'/'+method+'/'+idx)}}">
+                    <img class="shown-img" width='510px' src="{{url_for('static',filename=dataset+'/'+method+'/'+idx)}}">
                     <p class='text-center'>{{method}}-{{idx}}</p>
                 </div>
 
@@ -33,11 +33,7 @@
         </div>
         {% endfor %}
 
-        <nav aria-label="">
-          <ul class="pagination justify-content-center">
-            {{html|safe}}
-          </ul>
-        </nav>
+        
          
      </div>
  </div>
@@ -46,14 +42,14 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $(".btn-method").click(function(event) {
-            $("#"+event.target.id).toggleClass('list-group-item-warning')
+            $("#"+event.target.id).toggleClass('active')
             $("."+event.target.id+'-div').toggle()
         });
         var method_str = []
         $('.remember').click(function(){
             var params = new window.URLSearchParams(window.location.search);
             $('.btn-method').each(function(index){
-              if($(this).hasClass('list-group-item-warning')){
+              if($(this).hasClass('active')){
                   method_str.push($(this).text()) 
               }
             });
