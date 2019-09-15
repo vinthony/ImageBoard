@@ -21,12 +21,12 @@
         {% endif %}
      </div>
      <div class="col-11" style="padding:0">
-        {% for idx in images %}
+        {% for image in images %}
         <div  style="display: inline-block;margin: 10px">
             {% for method in filter_methods %}
                  <div class='{{method}}-div' style="display: inline-block;">
-                    <img class="shown-img" width='510px' src="{{url_for('static',filename=dataset+'/'+method+'/'+idx)}}">
-                    <p class='text-center'>{{method}}-{{idx}}</p>
+                    <img class="shown-img" width='570px' src="{{url_for('static',filename=dataset+'/'+method+'/'+image)}}">
+                    <p class='text-center'>{{method}}[{{image|remove_hz}}]</p>
                 </div>
 
             {% endfor %}

@@ -57,6 +57,9 @@ def showMain2():
     return render_template('method.html',images=index_list,filter_methods=methods_compare_list
         ,html=html,datasets=datasets,methods=methods,dataset=dataset)
 
+@app.template_filter('remove_hz')
+def remove_hz(l):
+    return "".join(l.split('.')[0:-1])
 
 
 
